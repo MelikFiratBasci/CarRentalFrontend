@@ -1,12 +1,14 @@
-<table>
-    <thead>
-        <tr>
-            <th>Renk</th>
-            <th>Renk Id</th>
-        </tr>
-    </thead>
-    <tr *ngFor= "let color of colors">
-        <td>{{color.colorName}}</td>
-        <td>{{color.colorId}}</td>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Renk</th>
+      <th scope="col">Renk Id</th>
     </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let color of colors">
+      <td>{{ color.colorName }}</td>
+      <td>{{ color.colorId }}</td>
+    </tr>
+  </tbody>
 </table>

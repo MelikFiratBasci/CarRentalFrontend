@@ -1,14 +1,16 @@
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Musteri Id</th>
-      <th>Kullanici Id</th>
-      <th>Sirket Adi </th>
+      <th scope="col">Musteri Id</th>
+      <th scope="col">Kullanici Id</th>
+      <th scope="col">Sirket Adi</th>
     </tr>
   </thead>
-  <tr *ngFor="let customer of customers">
-    <td>{{customer.customerId}}</td>
-    <td>{{customer.userId}}</td>
-    <td>{{customer.companyName}}</td>
-  </tr>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.customerId}}</td>
+      <td>{{customer.userId}}</td>
+      <td>{{customer.companyName}}</td>
+    </tr>
+  </tbody>
 </table>

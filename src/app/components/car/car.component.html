@@ -1,19 +1,20 @@
-<table>
+<table class="table">
     <thead>
-    <tr>
-            <th>Araba Id</th>
-        <th>Marka</th>
-        <th>Renk</th>
-        <th>Aciklama</th>
-        <th>Gunluk Kiralama Bedeli</th>
+      <tr>
+        <th scope="col">Araba Id</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Renk</th>
+        <th scope="col">Aciklama</th>
+        <th scope="col">Gunluk Kiralama bedeli</th>
     </tr>
     </thead>
-    <tr *ngFor ="let car of cars">
-        <td>{{car.id}}</td>
-        <td>{{car.brandName}}</td>
-        <td>{{car.colorName}}</td>
-        <td>{{car.description}}</td>
-        <td>{{car.dailyPrice}}</td>
-        
-    </tr>   
-</table>
+    <tbody>
+        <tr *ngFor ="let car of cars">
+            <td>{{car.id}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.description}}</td>
+            <td>{{car.dailyPrice}}</td>
+        </tr>   
+    </tbody>
+  </table>
