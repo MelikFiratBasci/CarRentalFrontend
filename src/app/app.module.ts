@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
+import { CarComponent } from './components/car/car.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ColorComponent } from './components/color/color.component';
     CustomerComponent,
     BrandComponent,
     ColorComponent,
+    CarComponent,
     
   ],
   imports: [
