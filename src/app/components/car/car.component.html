@@ -1,20 +1,21 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Araba Id</th>
-        <th scope="col">Marka</th>
-        <th scope="col">Renk</th>
-        <th scope="col">Aciklama</th>
-        <th scope="col">Gunluk Kiralama bedeli</th>
+<div *ngIf="dataLoaded == false" class="spinner-border text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<table *ngIf="dataLoaded ==true" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Marka</th>
+      <th scope="col">Renk</th>
+      <th scope="col">Aciklama</th>
+      <th scope="col">Gunluk Kiralama bedeli</th>
     </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor ="let car of cars">
-            <td>{{car.id}}</td>
-            <td>{{car.brandName}}</td>
-            <td>{{car.colorName}}</td>
-            <td>{{car.description}}</td>
-            <td>{{car.dailyPrice}}</td>
-        </tr>   
-    </tbody>
-  </table>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.brandName }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.description }}</td>
+      <td>{{ car.dailyPrice }}</td>
+    </tr>
+  </tbody>
+</table>
