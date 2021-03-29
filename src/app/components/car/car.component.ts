@@ -19,6 +19,9 @@ export class CarComponent implements OnInit {
       if (params["brandId"]) {
         this.getCarsByBrand(params["brandId"])
       }else{
+        if (params["colorId"]) {
+          this.getCarsByColor(params["colorId"])
+        }
         this.getCars();
       }
     })
@@ -33,6 +36,12 @@ export class CarComponent implements OnInit {
     this.carService.getCarsByBrand(categoryId).subscribe(response=>{
       this.cars = response.data;
       this.dataLoaded = true; 
+    })
+  }
+  getCarsByColor(colorId:number){
+    this.carService.getCarsByColor(colorId).subscribe(response=>{
+      this.cars=response.data;
+      this.dataLoaded = true ; 
     })
   }
 }
