@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -9,8 +11,11 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-  cars:Car[] = [];
+  cars:Car[] =[];
+  carImages:CarImage[] = [];
+  currentCar:Car;
   dataLoaded= false;
+  basePath ="https://localhost:44308/";
   constructor(private carService:CarService,
     private activatedRoute:ActivatedRoute) { }
 
@@ -43,5 +48,11 @@ export class CarComponent implements OnInit {
       this.cars=response.data;
       this.dataLoaded = true ; 
     })
+  }
+  getPath(){
+    return this.basePath 
+  }
+  setCurrentCar(car:Car){
+    this.currentCar = car
   }
 }

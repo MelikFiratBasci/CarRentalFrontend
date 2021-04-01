@@ -1,16 +1,21 @@
+<!DOCTYPE html>
+<html>
+  
+  <body></body>
+</html>
+<app-navi></app-navi>
+<br /><br />
 <div class="container">
-  <app-navi></app-navi>
   <div class="row">
-    <div class="col-md-3">
-      <app-brand></app-brand>
-    </div>
     <div class="col-md-2">
+      <app-brand></app-brand>
+      <br /><br />
       <app-color></app-color>
     </div>
-    <div class="col-md-8">
-      <router-outlet></router-outlet>
+    <div class="col-md-10">
+      <div class="header">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>
-
-

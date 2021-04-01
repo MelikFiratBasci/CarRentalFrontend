@@ -4,5 +4,8 @@ export interface Car{
     description:string;
     brandName:string;
     colorName:string;
-    
+    colorId:string;
+    brandId:string;
+    imagePath:string[];
+    modelYear:number;
 }

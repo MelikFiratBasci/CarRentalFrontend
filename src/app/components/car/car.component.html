@@ -1,21 +1,28 @@
-<div *ngIf="dataLoaded == false" class="spinner-border text-success" role="status">
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-success"
+  role="status"
+>
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded ==true" class="table">
-  <thead>
-    <tr>
-      <th scope="col">Marka</th>
-      <th scope="col">Renk</th>
-      <th scope="col">Aciklama</th>
-      <th scope="col">Gunluk Kiralama bedeli</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let car of cars">
-      <td>{{ car.brandName }}</td>
-      <td>{{ car.colorName }}</td>
-      <td>{{ car.description }}</td>
-      <td>{{ car.dailyPrice }}</td>
-    </tr>
-  </tbody>
-</table>
+
+<div *ngIf="dataLoaded == true" class="row row-cols-2 row-cols-md-3 g-4">
+  <div
+    (click)="setCurrentCar(car)"
+    routerLink="/cars/carid/{{ car.id }}"
+    *ngFor="let car of cars"
+    class="card"
+  >
+    <img [src]="getPath() + car.imagePath[0]" class="card" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ car.brandName }}</h5>
+      <h4 class="card-title">{{ car.colorName }}</h4>
+      <p class="card-text">{{ car.description }}</p>
+      <h4 class="card-text">{{ car.modelYear }}</h4>
+    </div>
+    <div class="card-footer">
+      <h3 class="text-muted">{{ car.dailyPrice }} tl</h3>
+    </div>
+  </div>
+</div>
+<h5 *ngIf="currentCar">{{ currentCar.brandName }} sectiniz</h5>
