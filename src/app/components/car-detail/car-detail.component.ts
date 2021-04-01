@@ -13,7 +13,7 @@ import { CarService } from 'src/app/services/car.service';
 export class CarDetailComponent implements OnInit {
 
   basePath ="https://localhost:44308/";
-  carDetails:Car[];
+  carDetail:Car;
   carImages:CarImage[];
   dataLoaded =false;
   currentImage:CarImage;
@@ -28,7 +28,7 @@ export class CarDetailComponent implements OnInit {
 
   getCarDetailsById(carId:number){
     this.carService.getCarById(carId).subscribe(response=>{
-      this.carDetails=response.data;
+      this.carDetail=response.data;
       this.dataLoaded =true;
     })
   }
