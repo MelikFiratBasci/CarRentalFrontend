@@ -28,8 +28,7 @@
         
         [src]="getPath()+ image.imagePath"
         class="d-block w-100"
-        width="700"
-        height="520"
+        width="500" height="600"
         alt="Image"
       >
     </div>
@@ -57,11 +56,11 @@
   <table class="table table-striped table-hover table-bordered">
     <thead>
       <tr>
-        <th>Brand</th>
-        <th>Color</th>
-        <th>Model Year</th>
-        <th>Daily Price</th>
-        <th>Description</th>
+        <th>Marka</th>
+        <th>Renk</th>
+        <th>Trafiğe Çıkış</th>
+        <th>Günlük Ücreti</th>
+        <th>Araç Detayı</th>
       </tr>
     </thead>
     <tbody>
@@ -69,7 +68,7 @@
         <td>{{ carDetail.brandName }}</td>
         <td>{{ carDetail.colorName }}</td>
         <td>{{ carDetail.modelYear }}</td>
-        <td>{{ carDetail.dailyPrice }}</td>
+        <td>{{ carDetail.dailyPrice |currency : "TRY":"₺":"1.0-2" }}</td>
         <td>{{ carDetail.description }}</td>
       </tr>
     </tbody>

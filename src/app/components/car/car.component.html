@@ -6,22 +6,32 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+
+<div class="mb-3">
+  <label for="filterText" class="form-label">Araç Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz">
+</div>
+<div  class ="alert alert-dark">
+{{filterText}} aradiniz
+</div >
+
+
 <div *ngIf="dataLoaded == true" class="row row-cols-2 row-cols-md-3 g-4">
   <div
     (click)="setCurrentCar(car)"
     routerLink="/cars/carid/{{ car.id }}"
-    *ngFor="let car of cars"
+    *ngFor="let car of cars |carFilterPipe:filterText"
     class="card"
   >
     <img [src]="getPath() + car.imagePath[0]" class="card" alt="..." />
-    <div class="card-body">
+    <div class="card-body" >
       <h5 class="card-title">{{ car.brandName }}</h5>
       <h4 class="card-title">{{ car.colorName }}</h4>
       <p class="card-text">{{ car.description }}</p>
       <h4 class="card-text">{{ car.modelYear }}</h4>
     </div>
     <div class="card-footer">
-      <h3 class="text-muted">{{ car.dailyPrice }} tl</h3>
+      <h3 class="text-muted">{{ car.dailyPrice |currency : "TRY":"₺":"1.0-2"}} </h3>
     </div>
   </div>
 </div>

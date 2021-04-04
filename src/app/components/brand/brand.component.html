@@ -1,10 +1,17 @@
 <div class="list-group">
   <button type="button" routerLink="cars" [class]="getAllBrandClass()">Markalar</button>
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Marka Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz">
+  </div>
+  <div  class ="alert alert-dark">
+  {{filterText}} aradiniz
+  </div >
   <a
     href="#"
     (click)="setCurrentBrand(brand)"
     routerLink="/cars/brand/{{ brand.brandId }}"
-    *ngFor="let brand of brands"
+    *ngFor="let brand of brands |brandFilterPipe:filterText"
     [class]="getCurrentBrandClass(brand)"
   >
     {{ brand.brandName }}

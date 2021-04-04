@@ -1,11 +1,18 @@
 <div class="list-group">
   <button type = "button" routerLink ="cars" [class]="getAllColorClass()">Renkler</button>
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Marka Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz">
+  </div>
+  <div  class ="alert alert-dark">
+  {{filterText}} aradiniz
+  </div >
   <button
     type="button"
     (click)="setCurrentColor(color)"
     routerLink ="cars/color/{{color.colorId}}"
     [class]= "getCurrentColorClass(color)"
-    *ngFor="let color of colors"
+    *ngFor="let color of colors |colorFilterPipe:filterText"
   >
     {{ color.colorName }}
   </button>
