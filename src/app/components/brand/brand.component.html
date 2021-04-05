@@ -4,7 +4,7 @@
     <label for="filterText" class="form-label">Marka Ara</label>
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz">
   </div>
-  <div  class ="alert alert-dark">
+  <div *ngIf="filterText" class ="alert alert-dark">
   {{filterText}} aradiniz
   </div >
   <a

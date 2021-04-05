@@ -6,33 +6,98 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="row ml-0 mr-0">
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Araç Ara</label>
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterText"
+      placeholder="Arama ifadesi giriniz"
+    />
+  </div>
+  <div *ngIf="filterText" class="alert alert-dark">
+    {{ filterText }} aradiniz
+  </div>
 
-<div class="mb-3">
-  <label for="filterText" class="form-label">Araç Ara</label>
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz">
-</div>
-<div  class ="alert alert-dark">
-{{filterText}} aradiniz
-</div >
-
-
-<div *ngIf="dataLoaded == true" class="row row-cols-2 row-cols-md-3 g-4">
-  <div
-    (click)="setCurrentCar(car)"
-    routerLink="/cars/carid/{{ car.id }}"
-    *ngFor="let car of cars |carFilterPipe:filterText"
-    class="card"
-  >
-    <img [src]="getPath() + car.imagePath[0]" class="card" alt="..." />
-    <div class="card-body" >
-      <h5 class="card-title">{{ car.brandName }}</h5>
-      <h4 class="card-title">{{ car.colorName }}</h4>
-      <p class="card-text">{{ car.description }}</p>
-      <h4 class="card-text">{{ car.modelYear }}</h4>
+  <div class="row">
+    <div class="col-md-5">
+      <select
+        class="form-select"
+        [(ngModel)]="currentBrand.brandId"
+      >
+        <option [ngValue]="undefined" disabled selected>Markalar</option>
+        <option
+        [selected]="setCurrentBrand(brand)"
+        *ngFor="let brand of brands"
+        [value]="currentBrand.brandId"
+        
+        >
+          {{ brand.brandName }}
+        </option>
+      </select>
     </div>
-    <div class="card-footer">
-      <h3 class="text-muted">{{ car.dailyPrice |currency : "TRY":"₺":"1.0-2"}} </h3>
+
+    <div class="col-md-4">
+      <select
+        class="form-select"
+        [(ngModel)]="currentColor.colorId"
+      >
+        <option [ngValue]="undefined" disabled selected>Renkler</option>
+        <option
+        [selected]="setCurrentColor(color)"
+          *ngFor="let color of colors"
+          [value]="currentColor.colorId"
+        >
+          {{ color.colorName }}
+        </option>
+      </select>
+      
+    </div>
+    <div class="col-md-1">
+      <button
+      *ngIf="currentColor && currentBrand"
+        type="button"
+        routerLink="/cars/filter/{{ currentBrand.brandId }}/{{
+          currentColor.colorId
+        }}"
+        class="btn btn-primary"
+      >
+        Listele
+      </button>
+    </div>
+    <div class="col md-1">
+      <button 
+      type = "button"
+      routerLink="/cars"
+      class="btn btn-secondary">
+        Sifirla
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="dataLoaded == true" class="row row-cols-2 row-cols-md-3 g-4">
+    <div
+      (click)="setCurrentCar(car)"
+      routerLink="/cars/carid/{{ car.id }}"
+      *ngFor="let car of cars | carFilterPipe: filterText"
+      class="card"
+    >
+      <img [src]="getPath() + car.imagePath[0]" class="card" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ car.brandName }}</h5>
+        <h4 class="card-title">{{ car.colorName }}</h4>
+        <p class="card-text">{{ car.description }}</p>
+        <h4 class="card-text">{{ car.modelYear }}</h4>
+      </div>
+      <div class="card-footer">
+        <h3 class="text-muted">
+          {{ car.dailyPrice | currency: "TRY":"₺":"1.0-2" }}
+        </h3>
+      </div>
     </div>
   </div>
 </div>
+
 <h5 *ngIf="currentCar">{{ currentCar.brandName }} sectiniz</h5>
