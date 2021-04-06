@@ -8,4 +8,5 @@ export interface Car{
     brandId:number;
     imagePath:string[];
     modelYear:number;
+    available?:boolean;
 }

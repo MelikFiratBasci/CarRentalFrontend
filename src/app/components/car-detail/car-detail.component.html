@@ -6,7 +6,8 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<div *ngIf="dataLoaded == true"
+<div
+  *ngIf="dataLoaded == true"
   id="carouselExampleIndicators"
   class="carousel slide"
   data-bs-ride="carousel"
@@ -25,12 +26,12 @@
   <div class="carousel-inner">
     <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
       <img
-        
-        [src]="getPath()+ image.imagePath"
+        [src]="getPath() + image.imagePath"
         class="d-block w-100"
-        width="500" height="600"
+        width="500"
+        height="600"
         alt="Image"
-      >
+      />
     </div>
   </div>
   <button
@@ -64,13 +65,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr >
+      <tr>
         <td>{{ carDetail.brandName }}</td>
         <td>{{ carDetail.colorName }}</td>
         <td>{{ carDetail.modelYear }}</td>
-        <td>{{ carDetail.dailyPrice |currency : "TRY":"₺":"1.0-2" }}</td>
+        <td>{{ carDetail.dailyPrice | currency: "TRY":"₺":"1.0-2" }}</td>
         <td>{{ carDetail.description }}</td>
       </tr>
     </tbody>
+    
   </table>
-</div>
+    
+  <div>
+    <app-rental [car] = "carDetail"></app-rental>
+  </div>
