@@ -20,6 +20,7 @@ import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
 import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
 
 import{ToastrModule} from "ngx-toastr";
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 
@@ -38,6 +39,7 @@ import{ToastrModule} from "ngx-toastr";
     CarFilterPipePipe,
     BrandFilterPipePipe,
     ColorFilterPipePipe,
+    PaymentComponent,
     
   ],
   imports: [

@@ -1,0 +1,89 @@
+<html>
+  <br />
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          
+          <div class="panel-body">
+            <div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="cc-name">Name on card</label>
+                  <input
+                    [(ngModel)]="fullName"
+                    type="text"
+                    class="form-control"
+                    id="cc-name"
+                    placeholder=""
+                    required
+                  />
+                  <small class="text-muted"
+                    >Full name as displayed on card</small
+                  >
+                  <div class="invalid-feedback">Name on card is required</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-number">Credit card number</label>
+                  <input
+                    [(ngModel)]="cardNumber"
+                    title="Must contain at least 8 or more characters"
+                    type="text"
+                    class="form-control"
+                    id="cc-number"
+                  />
+                  <div class="invalid-feedback">
+                    Credit card number is required
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="cc-expiration-year">Expiration Year</label>
+                  <input
+                    [(ngModel)]="expirationYear"
+                    type="number"
+                    class="form-control"
+                    id="cc-expiration-year"
+                    placeholder="YY"
+                    required
+                  />
+                  <div class="invalid-feedback">Expiration date required</div>
+                  <label for="cc-expiration-month">Expiration Month</label>
+                  <input
+                    [(ngModel)]="expirationMonth"
+                    type="number"
+                    class="form-control"
+                    id="cc-expiration-month"
+                    placeholder="MM"
+                    required
+                  />
+                  <div class="invalid-feedback">Expiration date required</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-cvc">CVC</label>
+                  <input
+                    [(ngModel)]="cvc"
+                    type="number"
+                    class="form-control"
+                    id="cc-cvc"
+                    placeholder="cvc"
+                    required
+                  />
+                  <div class="invalid-feedback">Security code required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <button (click)="payResult()" class="btn btn-warning">
+          {{ rental.totalPrice }} Ödeme Yap
+        </button>
+      </div>
+    </div>
+  </div>
+</html>

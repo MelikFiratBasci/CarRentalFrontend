@@ -10,4 +10,5 @@ export interface Rental{
     customerId:number;
     colorName:string;
     dailyPrice:number;
+    totalPrice:number;
 }
