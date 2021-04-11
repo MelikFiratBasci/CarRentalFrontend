@@ -17,8 +17,7 @@ export class CarAddComponent implements OnInit {
   brands:Brand[];
   colors:Color[];
   
-  colorId:number;
-  brandId:number;
+  
   constructor(
     private formBuilder: FormBuilder,
     private toastrService: ToastrService,
@@ -44,34 +43,32 @@ export class CarAddComponent implements OnInit {
   }
   createCarAddForm() {
     this.carAddForm = this.formBuilder.group({
-      brandId: ['', Validators.required],
-      colorId: ['', Validators.required],
-      modelYear: ['', Validators.required],
-      dailyPrice: ['', Validators.required],
-      description: ['', Validators.required]
-    });
+      brandId: ["", Validators.required],
+      colorId: ["", Validators.required],
+      modelYear: ["", Validators.required],
+      dailyPrice: ["", Validators.required],
+      description: ["", Validators.required]
+    })
   }
-  add() {
+  add(){
     if (this.carAddForm.valid) {
-      let carModel = Object.assign({}, this.carAddForm.value);
+      let carModel = Object.assign({},this.carAddForm.value);
       this.carService.addCar(carModel).subscribe(
-        (response) => {
+        (response)=>{
           console.log(response);
-          this.toastrService.success(response.message, 'Basarili');
+          this.toastrService.success(response.message,"Basarili");
+
         },
-        (responseError) => {
-          if (responseError.error.Errors.length > 0) {
+        (responseError)=>{
+          if (responseError.error.Errors.length>0) {
             for (let i = 0; i < responseError.error.Errors.length; i++) {
-              this.toastrService.error(
-                responseError.error.Errors[i].ErrorMessage,
-                'dogrulama Hatasi'
-              );
+              this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"dogrulama Hatasi");
             }
           }
         }
-      );
-    } else {
-      this.toastrService.error('Hatalı Form', 'Dikkat');
+      )
+    }else{
+      this.toastrService.error("hatali Form","Dikkat");
     }
   }
 }
