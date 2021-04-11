@@ -22,6 +22,8 @@ import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
 import{ToastrModule} from "ngx-toastr";
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
 
 
 
@@ -42,6 +44,8 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     ColorFilterPipePipe,
     PaymentComponent,
     CarAddComponent,
+    BrandAddComponent,
+    ColorAddComponent,
     
   ],
   imports: [
