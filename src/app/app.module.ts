@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from "@angular/forms";
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
 
@@ -21,6 +21,7 @@ import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
 
 import{ToastrModule} from "ngx-toastr";
 import { PaymentComponent } from './components/payment/payment.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 
 
@@ -40,6 +41,7 @@ import { PaymentComponent } from './components/payment/payment.component';
     BrandFilterPipePipe,
     ColorFilterPipePipe,
     PaymentComponent,
+    CarAddComponent,
     
   ],
   imports: [
@@ -48,6 +50,7 @@ import { PaymentComponent } from './components/payment/payment.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })
