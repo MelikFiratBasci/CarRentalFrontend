@@ -95,6 +95,7 @@
         <h3 class="text-muted">
           {{ car.dailyPrice | currency: "TRY":"₺":"1.0-2" }}
         </h3>
+        <button class="btn btn-primary" routerLink = "/cars/update/{{car.id}}">Guncelle</button>
       </div>
     </div>
   </div>

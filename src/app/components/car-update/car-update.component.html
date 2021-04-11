@@ -1,0 +1,77 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Arabayi guncelle</h5></div>
+        <div class="card-body">
+          <form [formGroup]="carUpdateForm" >
+            <div class="mb-3">
+              <label for="carId">Car Id</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="id"
+                  formControlName="id"
+                  class="form-control"
+                  placeholder="id"
+                />
+              </div>
+              <label for="brand">Brand Id</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="brandId"
+                  formControlName="brandId"
+                  class="form-control"
+                  placeholder="brand"
+                />
+              </div>
+              <label for="color">Color Id</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="colorId"
+                  formControlName="colorId"
+                  class="form-control"
+                  placeholder="color"
+                />
+              </div>
+              <label for="dailyPrice">Daily Price</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="dailyPrice"
+                  formControlName="dailyPrice"
+                  class="form-control"
+                  placeholder="dailyPrice"
+                />
+              </div>
+              <label for="modelYear">Model Year</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="modelYear"
+                  formControlName="modelYear"
+                  class="form-control"
+                  placeholder="modelYear"
+                />
+              </div>
+              <label for="description">Description</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="description"
+                  formControlName="description"
+                  class="form-control"
+                  placeholder="description"
+                />
+              </div>
+              
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-fill btn-secondary" (click)="update()">Guncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>

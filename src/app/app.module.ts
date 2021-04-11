@@ -24,6 +24,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 
 
 
@@ -46,6 +47,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
     CarAddComponent,
     BrandAddComponent,
     ColorAddComponent,
+    CarUpdateComponent,
     
   ],
   imports: [
